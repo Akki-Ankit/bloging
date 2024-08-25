@@ -11,11 +11,14 @@ const { SECRET } = require("../utils/envconfig");
  */
 async function userRegisterController(req, res) {
   try {
+     
+     
+    // console.log('req.body :', req.body);
     // Call the service function to register a new user
     const userRegisterServiceResponse = await userService.userRegisterService(
       req.body
     );
-
+    
     // Send a success response with the registered user details
     res.status(201).send({
       success: true,
@@ -41,8 +44,10 @@ async function userRegisterController(req, res) {
  */
 async function userSignInController(req, res) {
   try {
+    // console.log("reqbody",req.body)
     // Call the service function to sign in a user
     const signInUserServiceResponse = await userService.SignInUserService(req);
+    // console.log('signInUserServiceResponse :', signInUserServiceResponse);
 
     // Check if sign-in was successful and user data is returned
     if (!signInUserServiceResponse) {

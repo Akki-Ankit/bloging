@@ -80,7 +80,9 @@ async function blogByIdController(req, res) {
  * @param {object} res - response object
  */
 async function addNewBlogController(req, res) {
+  
   try {
+        console.log('req.headers :', req.headers);
     // Call the service function to add a new blog
     const AddNewBlogServiceResponse = await services.AddNewBlogService(req);
 

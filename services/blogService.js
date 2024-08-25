@@ -28,7 +28,7 @@ async function allBlogService() {
 async function blogByIdService(id) {
   try {
     const Blog = await postModel.findById(id);
-    console.log("Blog :", Blog);
+    // console.log("Blog :", Blog);s
 
     if (!Blog) {
       throw new Error("Blog Not Found please Enter Valid BlogId");
@@ -47,6 +47,7 @@ async function blogByIdService(id) {
  */
 async function AddNewBlogService(req) {
   try {
+    // console.log(req.body);
     if (req.body.title == "" || req.body.content == "") {
       throw new Error("Please Fill the Fields! Fields Can't be Blank");
     }
@@ -78,7 +79,7 @@ async function updateBlogService(authorId, body, id) {
     }
 
     const blogfind = await postModel.findOne({_id:id, author: authorId });
-    console.log('blogfind :', blogfind);
+    // console.log('blogfind :', blogfind);
     
     if (!blogfind) {
       throw new Error("Not A valid User Please Try Again");
